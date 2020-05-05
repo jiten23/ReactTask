@@ -1,0 +1,88 @@
+[
+  {
+    "key": "location",
+    "id": "0",
+    "value": "Location",
+    "count": 0,
+    "options": [
+      {
+        "key": "dealer",
+        "id": "0",
+        "value": "Dealer",
+        "selected": false
+      },
+      {
+        "key": "office",
+        "id": "1",
+        "value": "Office",
+        "selected": false
+      },
+      {
+        "key": "bank",
+        "id": "2",
+        "value": "Bank",
+        "selected": false
+      },
+      {
+        "key": "new_dealer",
+        "id": "3",
+        "value": "New Dealer",
+        "selected": false
+      },
+      {
+        "key": "customer",
+        "id": "4",
+        "value": "Customer",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "key": "visit_type",
+    "id": "1",
+    "value": "Visit Type",
+    "count": 0,
+    "options": [
+      {
+        "key": "complete",
+        "id": "0",
+        "value": "Complete",
+        "selected": false
+      },
+      {
+        "key": "incomplete",
+        "id": "1",
+        "value": "Incomplete",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "key": "sync_status",
+    "id": "2",
+    "value": "Sync Status",
+    "count": 0,
+    "options": [
+      {
+        "key": "synced",
+        "id": "0",
+        "value": "Synced",
+        "selected": false
+      },
+      {
+        "key": "not_synced",
+        "id": "1",
+        "value": "Not Synced",
+        "selected": false
+      }
+    ]
+  },
+  {
+    "key": "date",
+    "id": "3",
+    "value": "Date",
+    "count": 0,
+    "fromDate": null,
+    "toDate": null
+  }
+]

@@ -1,0 +1,46 @@
+import * as DBConstants from "../database/Constants";
+import {getDateFromString} from '../database/DBFunction'
+
+const VisitModel = {
+    [DBConstants.VISIT_ID]: "",
+    [DBConstants.VISIT_USER_ID]: "",
+    [DBConstants.VISIT_CHECK_IN_TYPE]: "",
+    [DBConstants.VISIT_DEALER_ID]: "",
+    [DBConstants.VISIT_LAT]: "",
+    [DBConstants.VISIT_LONG]: "",
+    [DBConstants.VISIT_CI_LAT]: "",
+    [DBConstants.VISIT_CI_LONG]: "",
+    [DBConstants.VISIT_CO_LAT]: "",
+    [DBConstants.VISIT_CO_LONG]: "",
+    [DBConstants.VISIT_LOCALITY]: "",
+    [DBConstants.VISIT_REMARK]: "",
+    [DBConstants.VISIT_NEXT_FOLLOW_UP]: getDateFromString(""),
+    [DBConstants.VISIT_DEALER_STATUS]: "",
+    [DBConstants.VISIT_IS_JOINT_VISIT]: "No",
+    [DBConstants.VISIT_JOINED]: JSON.stringify([]),
+    [DBConstants.VISIT_CUST_NAME]: "",
+    [DBConstants.VISIT_CUST_DEALER_CASE]: "",
+    [DBConstants.VISIT_CUST_CONTACT_NUMBER]: "",
+    [DBConstants.VISIT_CUST_CONTACT_EMAIL]: "",
+    [DBConstants.VISIT_CUST_ADDRESS]: "",
+    [DBConstants.VISIT_BANK_ID]: "",
+    [DBConstants.VISIT_DEALERSHIP_NAME]: "",
+    [DBConstants.VISIT_DEALER_NAME]: "",
+    [DBConstants.VISIT_DEALER_MOBILE_NUM]: "",
+    [DBConstants.VISIT_DEALER_EMAIL]: "",
+    [DBConstants.VISIT_DEALER_ADDRESS]: "",
+    [DBConstants.VISIT_OTHER_REASON]: "",
+    [DBConstants.VISIT_CI_DATE]: getDateFromString(""),
+    [DBConstants.VISIT_CO_DATE]: getDateFromString(""),
+    [DBConstants.VISIT_ADD_NOTE]: "",
+    [DBConstants.VISIT_OFFICE_ID]: "",
+    [DBConstants.VISIT_OFFICE_ADDRESS]: "",
+    [DBConstants.VISIT_REASONS]: "",
+    [DBConstants.VISIT_IMAGES]: [],
+    [DBConstants.VISIT_STATUS]: "0",
+    [DBConstants.VISIT_SYNC_STATUS]: "0",
+    [DBConstants.VISIT_CHECK_IN_DURATION]: "0",
+    [DBConstants.VISIT_GOING_TO_SLEEP_TIME]: getDateFromString('')
+};
+
+export default VisitModel;

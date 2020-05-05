@@ -1,0 +1,92 @@
+{
+  "status": "T",
+  "data": [
+    {
+      "card_id": 1,
+      "title": "Dealer Visits",
+      "card_details": {
+        "parent": {
+          "id": "1",
+          "clickable": true,
+          "label": "Not visited this month",
+          "value": "5",
+          "text_color": "red",
+          "indicator_color": "red"
+        },
+        "child": [
+          {
+            "id": "2",
+            "clickable": true,
+            "label": "Follow Ups",
+            "value": "2",
+            "text_color": "black",
+            "indicator_color": "red"
+          },
+          {
+            "id": "3",
+            "clickable": true,
+            "label": "With Issues",
+            "value": "7",
+            "text_color": "black",
+            "indicator_color": "green"
+          }
+        ]
+      }
+    },
+    {
+      "card_id": 2,
+      "title": "Converstion Confirmation",
+      "card_details": {
+        "parent": {
+          "id": "4",
+          "clickable": true,
+          "label": "Pending",
+          "value": "5",
+          "text_color": "red",
+          "indicator_color": "red"
+        },
+        "child": []
+      }
+    },
+    {
+      "card_id": 3,
+      "title": "Business Performance (May)",
+      "card_details": {
+        "parent": {
+          "id": "5",
+          "clickable": true,
+          "label": "Classified Revenue",
+          "value": "15,000",
+          "text_color": "red",
+          "indicator_color": "red"
+        },
+        "child": [
+          {
+            "id": "6",
+            "clickable": true,
+            "label": "Disbursed",
+            "value": "2",
+            "text_color": "black",
+            "indicator_color": "red"
+          },
+          {
+            "id": "7",
+            "clickable": true,
+            "label": "Policy Punched",
+            "value": "3",
+            "text_color": "black",
+            "indicator_color": "green"
+          },
+          {
+            "id": "8",
+            "clickable": true,
+            "label": "Warranty Sold",
+            "value": "3",
+            "text_color": "black",
+            "indicator_color": "blue"
+          }
+        ]
+      }
+    }
+  ]
+}

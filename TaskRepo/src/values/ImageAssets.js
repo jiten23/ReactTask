@@ -1,0 +1,1 @@
+export const icon_up_arrow = require('../assets/drawable/arrow_drop_up_grey_b.png');
