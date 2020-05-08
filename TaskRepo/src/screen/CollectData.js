@@ -63,7 +63,9 @@ class CollectData extends Component {
                         <TouchableOpacity 
                             onPress={() => {
                             if(this.state.searchFirstItem != ''){
-                                this.props.navigation.navigate('WeatherDetails')
+                                this.props.navigation.navigate('WeatherDetails', {
+                                    'location': this.state.searchFirstItem,
+                                });
                             }
                             }}
                         style={styles.SectionStyleTouch}>

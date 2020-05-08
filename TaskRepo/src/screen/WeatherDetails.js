@@ -54,8 +54,8 @@ class WeatherDetails extends Component {
               
                 <View style={{alignSelf:'center', paddingBottom: 20,top:100 }}>
                     <View style={styles.SectionStyle}>
-
-                        <Text style={{fontSize:20}}>{"Not completed Due to time "}</Text>
+                    <Text style={{fontSize:20,color:Colors.skyBlue}}>{this.props.navigation.state.params.location}</Text>
+                        <Text style={{marginTop:20,fontSize:20}}>{"Not completed Due to time "}</Text>
                         
                     </View>
                     
