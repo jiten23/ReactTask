@@ -1,73 +1,30 @@
 import {Strings} from '../values';
 
-async function apiRequest(method, url, headers, callback, params, errorMsg, callbackFailure, props) {
-        
-                var body;
-                var query = '';
-                if (method === 'GET') {
+async function apiRequest( url, callback,  callbackFailure, props) {
 
-                        //TODO need to implement fecth using async-await ref- https://facebook.github.io/react-native/docs/network.html
-                        fetch(url + query, {
-                            method
-                            }).then((response) => {
-                            var resJson;
-                            Utility.log('-------------->' + JSON.stringify(response))
-                            resJson = response.json();
-                            return resJson;
-                        })
-                            .then((responseJson) => {
-                                if (!responseJson) {
-                                    return;
-                                }
-
-                                Utility.log("response : " + url + "    =>  " + JSON.stringify(responseJson.code));
-                                if (responseJson.statusCode != 200) {
-                                    alert("Please try again");
-                                    callbackFailure(responseJson);
-                                    return;
-                                }
-
-                                if (callback) {
-
-                                    callback(responseJson);
-                                }
-
-                            }).catch((error) => {
-                            Utility.log("Error from Server Request :::::: " + error);
-                            if (callbackFailure) {
-                                callbackFailure();
-                            }
-                        });
-                    
-
-                } else if (method === 'POST') {
-                    query = paramsToUrlQueryParams(params);
-                } else if (method === 'JSON_POST') {
-                    body = params;
-                    method = 'POST';
-                }
+    fetch(url)
+    .then((response) => response.json())
+    .then((responseJson) => {
+       
+        callback(responseJson) 
+    })
+    .catch( error => {
+        callbackFailure(error)
+      console.error(error);
+    });
 
 }
 
-function paramsToUrlQueryParams(params) {
 
-    var esc = encodeURIComponent;
-    var query = "";
-    if (params) {
-        query = '?';
-        query += Object.keys(params).map(k => esc(k) + '=' + esc(params[k])).join('&');
-    }
-    return query;
+
+export function searchLocationBaseDataApi(extraData, callbackSuccess, callbackFailure) {
+
+    apiRequest( Strings.SEARCH_LocationData_API+extraData, callbackSuccess, callbackFailure, null);
 }
 
-export function searchLocationBaseDataApi(params,extraData, callbackSuccess, callbackFailure) {
+export function searchLocationBaseDataApiss(extraData, callbackSuccess, callbackFailure, props) {
 
-    apiRequest('GET', Strings.SEARCH_LocationData_API+extraData, null, callbackSuccess, true, params, null, null, callbackFailure, null);
-}
-
-export function searchLocationBaseDataApiss(params,extraData, callbackSuccess, callbackFailure, props) {
-
-    apiRequest('GET', Strings.SEARCH_LocationData_API+extraData, null, callbackSuccess, true, params, null, null, callbackFailure, null);
+    apiRequest( Strings.SEARCH_LocationData_API+extraData, callbackSuccess, callbackFailure, null);
 
 }
 

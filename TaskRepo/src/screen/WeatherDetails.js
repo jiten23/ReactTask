@@ -1,23 +1,21 @@
 import React, {Component} from 'react';
-import { SafeAreaView,View,StyleSheet,Text,FlatList,ActivityIndicator} from 'react-native';
-import {Strings, Styles,Colors} from '../values'
-import StoryItem from '../component/StoryItem'
+import { SafeAreaView,View,StyleSheet,Text,TextInput,ActivityIndicator,KeyboardAvoidingView,ScrollView} from 'react-native';
+import {Colors,Strings} from '../values';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import {searchLocationBaseDataApi} from "../apiCalls/apiCalls"
 
 class WeatherDetails extends Component {
-
     
     constructor(props) {
+
         super(props);
-        this.state = {
-            isLoading: true,
-            arrStoryData:[],
-            increamentCount:0
-        };
+
+        this.state = {isLoading : false, arrStoryData:[], increamentCount:0};
        
     }
 
    
-    componentWillMount() {}
+    UNSAFE_componentWillMount() {}
     
     componentWillUnmount() {}
 
@@ -25,61 +23,52 @@ class WeatherDetails extends Component {
    
 
      componentDidMount() {
-        this.getStoryData(Strings.SEARCH_DATE_API+this.state.increamentCount)
-        setInterval(() => {
-            this.getStoryData(Strings.SEARCH_DATE_API+this.state.increamentCount)
-           }, 10000);
         
     }
 
 
-    getStoryData = (URL)=> {
-        
-    this.setState({isLoading:true})
-        fetch(URL)
-        .then((response) => response.json())
-        .then((responseJson) => {
-           this.setState({
-               arrStoryData:responseJson.hits,
-               isLoading:false,
-               increamentCount:this.state.increamentCount+1
-            })
-        })
-        .catch( error => {
-          console.error(error);
-        });
-       
-}
+    getLocationData = (text) => {
+        if(text.length > 0){
+            this.setState({isLoading : true})
+            let params = {}
+            searchLocationBaseDataApi(param,text,this.getLocationDataSuccess, this.getLocationDataFailure)      
+        }
+    }
+    getLocationDataSuccess = () => {
+        this.setState({isLoading:false})
+        alert("success")
+    }
+    getLocationDataFailure = () => {
+        this.setState({ isLoading : false })
+        alert("failure")
+    }
 
     render() {
         return (
 
-        <SafeAreaView style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-        <View style={{flex:1,paddingTop:10,alignItems:'center',justifyContent:'center'}}>
-        <View style={{padding:10,alignItems:'center',justifyContent:'center'}}>
-            <Text style={styles.titleCss}>{"Story Feed's"}</Text>
-        </View>
+            <ScrollView contentContainerStyle={{flexGrow: 1}}
+            keyboardShouldPersistTaps='handled'>
 
-        {this.state.isLoading ?
-        <ActivityIndicator 
-            animating= {true}
-        />
-        :
-        <FlatList
-            style={{ flex:1 }}
-            keyExtractor={(item, index) => index.toString()}
-            data={this.state.arrStoryData}
-            renderItem={({ item, index }) => (
-              <StoryItem item={item}/>
-            )}
-        />
-        }
-        </View>
-        </SafeAreaView>
+            <KeyboardAvoidingView style={styles.outerComponentStyle} keyboardVerticalOffset={-500}>
+                
+              
+                <View style={{alignSelf:'center', paddingBottom: 20,top:100 }}>
+                    <View style={styles.SectionStyle}>
+
+                        <Text style={{fontSize:20}}>{"Not completed Due to time "}</Text>
+                        
+                    </View>
+                    
+                     
+                </View>
+              
+
+            </KeyboardAvoidingView>
+            </ScrollView>
+       
         )
-    }
 }
-
+}
 
 
 const styles = StyleSheet.create ({

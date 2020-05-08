@@ -22,9 +22,7 @@ class SplashContainer extends Component {
 
     UNSAFE_componentWillMount(){
         setTimeout(()=>{
-            this.props.navigation.navigate('HomeContainer', {
-                type: 'email',
-            })
+            this.props.navigation.navigate('CollectData')
         },3000)
     }
 
