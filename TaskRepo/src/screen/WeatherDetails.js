@@ -3,7 +3,7 @@ import { SafeAreaView,View,StyleSheet,Text,FlatList,ActivityIndicator} from 'rea
 import {Strings, Styles,Colors} from '../values'
 import StoryItem from '../component/StoryItem'
 
-class HomeContainer extends Component {
+class WeatherDetails extends Component {
 
     
     constructor(props) {
@@ -17,14 +17,20 @@ class HomeContainer extends Component {
     }
 
    
-    UNSAFE_componentWillMount() {
+    componentWillMount() {}
+    
+    componentWillUnmount() {}
+
+    
+   
+
+     componentDidMount() {
         this.getStoryData(Strings.SEARCH_DATE_API+this.state.increamentCount)
         setInterval(() => {
             this.getStoryData(Strings.SEARCH_DATE_API+this.state.increamentCount)
            }, 10000);
+        
     }
-    
-    
 
 
     getStoryData = (URL)=> {
@@ -88,4 +94,4 @@ const styles = StyleSheet.create ({
     }
  })
 
-export default HomeContainer;
+export default WeatherDetails;

@@ -2,21 +2,16 @@ import React, {Component} from 'react';
 import {Strings} from "../values"
 import HomeContainer from "./HomeContainer";
 import {
-    SafeAreaView,
-    StyleSheet,
-    Image,
-    View,
-    Text,
-    StatusBar,
+    SafeAreaView, 
+    StyleSheet, 
+    Image, 
+    View 
   } from 'react-native';
 
 
 class SplashContainer extends Component {
 
-    componentWillMount() {
-
-    }
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -25,18 +20,17 @@ class SplashContainer extends Component {
        
     }
 
-    componentWillUnmount() {
-    }
-
-   
-
-    async componentDidMount() {
+    UNSAFE_componentWillMount(){
         setTimeout(()=>{
             this.props.navigation.navigate('HomeContainer', {
                 type: 'email',
             })
         },3000)
     }
+
+   
+
+   
 
     render() {
         let Image_Http_URL ={ uri: 'https://www.okoders.com/wp-content/uploads/2020/02/cropped-logo-web-transparent-e1582909628802-1.png'};
@@ -45,7 +39,7 @@ class SplashContainer extends Component {
           
           <SafeAreaView style={{flex:1}}>
             <View
-              style={styles.scrollView}>
+              style={styles.containerView}>
                 <Image 
                     resizeMode={'contain'}
                     style={{width:150,height:150}} 
@@ -57,7 +51,7 @@ class SplashContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
+    containerView: {
         flex:1,
         alignItems:'center',
         justifyContent:'center'
